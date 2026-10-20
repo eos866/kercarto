@@ -462,7 +462,8 @@ body{font-size:14px}
 .lphead{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 8px}
 .lphead b{font:700 15px var(--f-display)}
 .lphead .x{width:28px;height:28px;border:0;border-radius:8px;background:var(--soft)}
-.bmgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:0 16px 6px}
+.bmgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 8px;padding:0 16px 8px}
+.bmgrid .bmp{aspect-ratio:16/10}
 .bm{display:grid;gap:5px;justify-items:center;border:0;background:none;box-shadow:none;padding:0;font-size:11.5px;font-weight:500;color:var(--ink)}
 .bm small{color:var(--muted);font-weight:400}
 .bm>span{font-size:11px;line-height:1.2;text-align:center}
@@ -470,6 +471,12 @@ body{font-size:14px}
 .bm.on .bmp{border-color:var(--accent);box-shadow:var(--ring)}
 .bm.on{box-shadow:none}
 .bm:disabled{background:none;opacity:.55}
+.bmp.rues{background:linear-gradient(115deg,transparent 46%,#f6d48f 46% 52%,transparent 52%),linear-gradient(25deg,transparent 58%,#fff 58% 63%,transparent 63%),linear-gradient(160deg,#a3cbe6 0 26%,#f3f0e6 26%)}
+.bmp.clair{background:linear-gradient(115deg,transparent 47%,#fff 47% 51%,transparent 51%),linear-gradient(160deg,#d6dde3 0 26%,#f5f5f3 26%)}
+.bmp.voy{background:linear-gradient(115deg,transparent 46%,#f9c97f 46% 51%,transparent 51%),linear-gradient(160deg,#b5d0e6 0 26%,#f7f3ec 26% 70%,#d7ead2 70%)}
+.bmp.sombre{background:linear-gradient(115deg,transparent 47%,#555c66 47% 51%,transparent 51%),linear-gradient(160deg,#1a1f27 0 26%,#2d3139 26%)}
+.bmp.topo{background:repeating-radial-gradient(circle at 70% 70%,transparent 0 6px,#c9b893 6px 7px),linear-gradient(160deg,#a9cfe4 0 26%,#eef0df 26%)}
+.bmp.relief{background:repeating-radial-gradient(circle at 60% 60%,#d8e3c4 0 5px,#b49d74 5px 6px),linear-gradient(160deg,#9fc4dc 0 26%,#d8e3c4 26%)}
 .bmp.osm{background:linear-gradient(115deg,transparent 46%,#f3c98a 46% 52%,transparent 52%),linear-gradient(20deg,transparent 60%,#fff 60% 64%,transparent 64%),linear-gradient(160deg,#aad3df 0 28%,#f2efe9 28%)}
 .bmp.sat{background:radial-gradient(circle at 30% 70%,#6b7d48 0 18%,transparent 19%),radial-gradient(circle at 70% 35%,#8a7a58 0 22%,transparent 23%),linear-gradient(150deg,#1f4b63 0 30%,#55663f 30% 65%,#7d6f52 65%)}
 .bmp.sch{background:linear-gradient(160deg,var(--sea) 0 32%,var(--land) 32%)}
@@ -585,8 +592,13 @@ body{font-size:14px}
     <div class="lpanel" id="lpanel" hidden role="dialog" aria-label="Fond de carte et couches">
       <div class="lphead"><b>Fond de carte</b><button class="x" id="lpClose" aria-label="Fermer">✕</button></div>
       <div class="bmgrid" id="basemaps">
-        <button class="bm on" data-bm="osm"><i class="bmp osm"></i><span>OSM</span></button>
-        <button class="bm" data-bm="sat"><i class="bmp sat"></i><span>Satellite</span></button>
+        <button class="bm on" data-bm="rues" title="Esri World Street Map"><i class="bmp rues"></i><span>Rues</span></button>
+        <button class="bm" data-bm="clair" title="CARTO Positron"><i class="bmp clair"></i><span>Clair</span></button>
+        <button class="bm" data-bm="voyager" title="CARTO Voyager"><i class="bmp voy"></i><span>Voyager</span></button>
+        <button class="bm" data-bm="sombre" title="CARTO Dark Matter"><i class="bmp sombre"></i><span>Sombre</span></button>
+        <button class="bm" data-bm="topo" title="Esri World Topographic Map"><i class="bmp topo"></i><span>Topo</span></button>
+        <button class="bm" data-bm="relief" title="OpenTopoMap, courbes de niveau"><i class="bmp relief"></i><span>Relief</span></button>
+        <button class="bm" data-bm="sat" title="Esri World Imagery"><i class="bmp sat"></i><span>Satellite</span></button>
         <button class="bm" data-bm="schema" title="Fond schématique, fonctionne hors ligne"><i class="bmp sch"></i><span>Schéma</span></button>
         <button class="bm" disabled title="Plan cadastral : convention DGID / PROCASEF (V2)"><i class="bmp cad"></i><span>Cadastre <small>V2</small></span></button>
       </div>
@@ -831,7 +843,7 @@ computeNear();
 // ---------- État ----------
 let T=d3.zoomIdentity,W=0,H=0;
 const S={sel:null,tool:null,zone:null,draft:null,iso:null,isoMode:'walk',isoT:15,peak:false,isoOrigin:null,
-  layers:{listings:1,hex:0,regions:1,deps:1,arrs:0,roads:1,ter:1,brt:1},poicats:new Set(Object.keys(CATS)),bm:'osm',
+  layers:{listings:1,hex:0,regions:1,deps:1,arrs:0,roads:1,ter:1,brt:1},poicats:new Set(Object.keys(CATS)),bm:'rues',
   f:{tx:'all',types:new Set(),pmin:0,pmax:0,smin:0,rooms:0,fon:new Set(),exact:false,ag:''},adv:null,adm:{1:-1,2:-1,3:-1,c:-1},sort:'recent',tab:'list',filtered:LIST.slice(),pinned:null};
 
 // ---------- Fond de carte ----------
@@ -1455,7 +1467,12 @@ rp.addEventListener('change',e=>{const t=e.target;
 const isDark=()=>{const t=document.documentElement.dataset.theme;return t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)};
 const RET=(window.devicePixelRatio||1)>1.4?'@2x':'';
 const BASEMAPS={
-  osm:{layers:()=>[{url:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',max:19}],attr:'© contributeurs OpenStreetMap'},
+  rues:{layers:()=>[{url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',max:19}],attr:'Fond © Esri, HERE, Garmin, © contributeurs OpenStreetMap'},
+  clair:{layers:()=>[{url:`https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}${RET}.png`,sub:'abcd',max:20}],attr:'© contributeurs OpenStreetMap · © CARTO'},
+  voyager:{layers:()=>[{url:`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}${RET}.png`,sub:'abcd',max:20}],attr:'© contributeurs OpenStreetMap · © CARTO'},
+  sombre:{layers:()=>[{url:`https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}${RET}.png`,sub:'abcd',max:20}],attr:'© contributeurs OpenStreetMap · © CARTO'},
+  topo:{layers:()=>[{url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',max:19}],attr:'Fond © Esri, HERE, Garmin, USGS, © contributeurs OpenStreetMap'},
+  relief:{layers:()=>[{url:'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',sub:'abc',max:17}],attr:'© contributeurs OpenStreetMap, SRTM · style © OpenTopoMap (CC-BY-SA)'},
   sat:{layers:()=>[{url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',max:19},{url:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',max:19}],attr:'Imagerie © Esri, Maxar, Earthstar Geographics · libellés © Esri'},
   schema:{layers:()=>[],attr:'Fond schématique hors ligne (tracé approximatif)'}
 };
@@ -1484,7 +1501,7 @@ function renderTiles(){
 }
 function initTiles(){
   $('#basemaps').addEventListener('click',e=>{const b=e.target.closest('button[data-bm]');if(b&&!b.disabled)setBasemap(b.dataset.bm)});
-    setBasemap('osm');
+    setBasemap('rues');
 }
 
 // ---------- Limites administratives (geoBoundaries) et filtre Région / Département / Arrondissement / Commune ----------

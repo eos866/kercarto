@@ -378,6 +378,129 @@ button.rowi:hover{background:var(--soft)}
   .foot{display:none}
   .tip{left:58px;right:58px;max-width:none}
 }
+
+/* ===== Refonte UX ===== */
+:root{--r:10px;--r-lg:14px;--ring:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+body{font-size:14px}
+#app{grid-template-columns:384px 1fr}
+.top{height:60px;gap:12px;padding:0 16px;box-shadow:0 1px 0 var(--line)}
+.brand{align-items:center;gap:8px}
+.brand .logo{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink)}
+.brand b{font-size:20px}
+.brand small{font-size:10px;padding:2px 6px;border-radius:999px}
+.search{max-width:560px}
+.search input{height:42px;border-radius:999px;background:var(--soft);border-color:transparent;padding-left:40px;font-size:14.5px;transition:box-shadow .15s,background .15s}
+.search input:focus{outline:none;background:var(--panel);border-color:var(--accent);box-shadow:var(--ring)}
+.search svg{left:15px;top:13px}
+.sugg{top:48px;border-radius:12px;padding:6px}
+.sugg button{border-radius:8px;padding:9px 10px}
+.btn{height:38px;border-radius:var(--r);font-weight:500}
+.btn.ghost{background:var(--panel);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
+.btn.ghost:hover{background:var(--accent-soft)}
+.btn.primary:hover{filter:brightness(1.07)}
+.ctx{height:38px}
+
+/* onglets en segments */
+.tabs{gap:4px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.tabs button{border:0;border-radius:8px;padding:8px 6px;font-weight:500;color:var(--muted)}
+.tabs button:hover{background:var(--soft);color:var(--ink)}
+.tabs button.on{background:var(--accent-soft);color:var(--ink);border:0}
+.tabs .count{background:var(--panel)}
+
+/* filtres rapides */
+.qbar{padding:12px 16px 8px;display:grid;gap:8px}
+.qseg{display:grid;grid-template-columns:repeat(3,1fr);background:var(--soft);border-radius:var(--r);padding:3px}
+.qseg button{border:0;background:none;border-radius:8px;height:34px;font-weight:500;color:var(--muted)}
+.qseg button.on{background:var(--panel);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.qrow{display:grid;grid-template-columns:1fr 1fr auto;gap:6px}
+.qrow select{font-size:13px;height:36px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:0 8px;min-width:0}
+.qmore{height:36px;border:1px solid var(--line);background:var(--panel);border-radius:var(--r);padding:0 10px;display:inline-flex;align-items:center;gap:6px;font-weight:500}
+.qmore:hover{border-color:var(--accent)}
+.qmore span{background:var(--accent);color:var(--accent-ink);border-radius:999px;font:600 11px/1 var(--f-mono);padding:3px 6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:2px 16px 10px}
+.fchip{display:inline-flex;align-items:center;gap:6px;height:28px;border:0;border-radius:999px;background:var(--accent-soft);color:var(--ink);padding:0 8px 0 11px;font-size:12.5px;font-weight:500}
+.fchip svg{opacity:.6}
+.fchip:hover svg{opacity:1}
+.fclear{border:0;background:none;color:var(--accent);font-size:12.5px;font-weight:500;padding:0 4px}
+.listhead{padding:8px 16px;border-top:1px solid var(--line);background:var(--panel);position:sticky;top:0;z-index:2}
+.listhead select{border:0;background:none;font-weight:500;color:var(--ink);cursor:pointer}
+
+/* cartes d'annonces */
+.card{grid-template-columns:56px 1fr;gap:14px;padding:14px 16px;border-bottom:1px solid var(--line);transition:background .12s}
+.card.on{background:var(--accent-soft);box-shadow:inset 3px 0 0 var(--accent)}
+.ticon{width:56px;height:64px;border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--c);background:color-mix(in srgb,var(--c) 12%,var(--panel))}
+.ticon em{font-style:normal;font-size:9.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);max-width:52px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cbody{display:grid;gap:2px;min-width:0}
+.crow{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.cprice{font:600 17px/1.2 var(--f-mono);letter-spacing:-.01em;white-space:nowrap}
+.cprice small{font:500 11px var(--f-body);color:var(--muted);letter-spacing:0}
+.cppm{font-size:11.5px;color:var(--muted);white-space:nowrap}
+.ctitle{font-weight:500;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cloc{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ctags{margin-top:5px;display:flex;flex-wrap:wrap;gap:4px}
+.ctags .tag{margin:0;border-radius:999px;padding:2px 8px}
+
+/* formulaires */
+.form{gap:20px;padding:16px}
+.form select,.form input[type=number],.adm select{height:38px;border-radius:var(--r)}
+.seg button{height:32px;padding:0 12px}
+
+/* carte : outils, contrôles, panneau couches */
+.cbtn{width:40px;height:40px;border-radius:var(--r)}
+.cgroup{border-radius:var(--r)}
+.mtools{position:absolute;top:12px;left:12px;z-index:5;display:flex;gap:8px;flex-wrap:wrap;max-width:calc(100% - 80px)}
+.tgroup{display:flex;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:3px;gap:2px}
+.tlabel{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:0 6px 0 8px}
+.tbtn{height:34px;border:0;background:none;border-radius:8px;display:inline-flex;align-items:center;gap:6px;padding:0 10px;font-size:13px;font-weight:500;color:var(--ink)}
+.tbtn:hover{background:var(--soft)}
+.tbtn.on{background:var(--accent);color:var(--accent-ink)}
+.tbtn.icon{padding:0 9px;color:var(--muted)}
+.tbtn.solo{background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);height:40px;border-radius:var(--r)}
+.tbtn.solo.on{background:var(--accent);border-color:var(--accent)}
+.tip{left:12px;top:64px}
+.lpanel{position:absolute;top:12px;right:62px;width:310px;max-height:calc(100% - 24px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);z-index:16}
+.lphead{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 8px}
+.lphead b{font:700 15px var(--f-display)}
+.lphead .x{width:28px;height:28px;border:0;border-radius:8px;background:var(--soft)}
+.bmgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:0 16px 6px}
+.bm{display:grid;gap:5px;justify-items:center;border:0;background:none;box-shadow:none;padding:0;font-size:11.5px;font-weight:500;color:var(--ink)}
+.bm small{color:var(--muted);font-weight:400}
+.bm>span{font-size:11px;line-height:1.2;text-align:center}
+.bmp{display:block;width:100%;aspect-ratio:1;border-radius:10px;border:2px solid var(--line)}
+.bm.on .bmp{border-color:var(--accent);box-shadow:var(--ring)}
+.bm.on{box-shadow:none}
+.bm:disabled{background:none;opacity:.55}
+.bmp.osm{background:linear-gradient(115deg,transparent 46%,#f3c98a 46% 52%,transparent 52%),linear-gradient(20deg,transparent 60%,#fff 60% 64%,transparent 64%),linear-gradient(160deg,#aad3df 0 28%,#f2efe9 28%)}
+.bmp.sat{background:radial-gradient(circle at 30% 70%,#6b7d48 0 18%,transparent 19%),radial-gradient(circle at 70% 35%,#8a7a58 0 22%,transparent 23%),linear-gradient(150deg,#1f4b63 0 30%,#55663f 30% 65%,#7d6f52 65%)}
+.bmp.sch{background:linear-gradient(160deg,var(--sea) 0 32%,var(--land) 32%)}
+.bmp.cad{background:repeating-linear-gradient(0deg,transparent 0 9px,#c9c2b1 9px 10px),repeating-linear-gradient(90deg,#f4f1ea 0 11px,#c9c2b1 11px 12px)}
+.lpanel .form{padding:10px 16px 16px;gap:14px}
+.lpanel .lgroup:first-child{border-top:1px solid var(--line);padding-top:12px}
+
+/* pastilles carte */
+.pill{border-radius:8px;padding:4px 8px}
+.pill.hl{background:var(--warm);color:#fff;z-index:9999!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--warm) 35%,transparent),0 2px 6px rgba(0,0,0,.3)}
+.pill.hl::after{border-top-color:var(--warm)}
+.pill.hl span,.pill.hl b::after{color:inherit}
+
+/* fiche */
+.sheet{border-radius:var(--r-lg)}
+.sheet .big b{font-size:22px}
+.contact .btn{height:42px}
+.legend{border-radius:var(--r)}
+.toast{border-radius:var(--r)}
+
+@media (max-width: 820px){
+  .top{height:auto;padding:8px 12px}
+  .brand .logo{width:28px;height:28px}
+  .tbtn span{display:none}
+  .tlabel{display:none}
+  .mtools{top:10px;left:10px}
+  .lpanel{right:10px;left:10px;width:auto;top:10px}
+  .tip{top:60px;left:10px;right:10px}
+  .qrow{grid-template-columns:1fr 1fr}
+  .qmore{grid-column:1/-1;justify-content:center}
+}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -385,15 +508,15 @@ button.rowi:hover{background:var(--soft)}
 <body>
 <div id="app">
   <header class="top">
-    <div class="brand"><b>Kër<i>·</i>Carto</b><small>Prototype</small></div>
+    <div class="brand"><span class="logo" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><path d="M9 10.5l3-2.5 3 2.5V13H9z"/></svg></span><b>Kër<i>·</i>Carto</b><small>Prototype</small></div>
     <button class="ctx" id="ctxBtn" hidden title="Changer de profil ou de territoire"><span class="r" id="ctxRole"></span><span class="t" id="ctxTerr"></span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
     <div class="search">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-      <input id="q" type="search" autocomplete="off" placeholder="Quartier, commune, région, coordonnées (14.69, -17.45) ou référence">
+      <input id="q" type="search" autocomplete="off" placeholder="Où cherchez-vous ? Quartier, commune, adresse…" aria-label="Rechercher un lieu, une adresse, des coordonnées ou une référence">
       <div class="sugg" id="sugg" hidden></div>
     </div>
     <div class="spacer"></div>
-    <button class="btn primary" id="advBtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="lbl-long">Recherche par temps d'accès</span><span class="lbl-short">Temps d'accès</span></button>
+    <button class="btn ghost" id="advBtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="lbl-long">Recherche par temps d'accès</span><span class="lbl-short">Temps d'accès</span></button>
   </header>
 
   <aside class="side" id="side">
@@ -401,20 +524,18 @@ button.rowi:hover{background:var(--soft)}
     <nav class="tabs" role="tablist">
       <button class="on" data-tab="list">Annonces<span class="count" id="cnt">0</span></button>
       <button data-tab="filters">Filtres<span class="count" id="fcnt" hidden>0</span></button>
-      <button data-tab="layers">Couches</button>
       <button data-tab="role" id="roleTab" hidden><span id="roleLbl">Espace</span></button>
     </nav>
     <section class="pane" id="pane-list">
+      <div class="qbar" id="qbar"></div>
+      <div class="chips" id="chips" hidden></div>
       <div class="listhead"><span id="scope">Dans la zone affichée</span>
-        <select id="sort" aria-label="Trier"><option value="recent">Plus récentes</option><option value="pasc">Prix croissant</option><option value="pdesc">Prix décroissant</option><option value="ppm">Prix au m² croissant</option></select>
+        <select id="sort" aria-label="Trier les annonces"><option value="recent">Plus récentes</option><option value="pasc">Prix croissant</option><option value="pdesc">Prix décroissant</option><option value="ppm">Prix au m² croissant</option></select>
       </div>
       <div id="list"></div>
     </section>
     <section class="pane" id="pane-filters" hidden>
       <div class="form" id="filters"></div>
-    </section>
-    <section class="pane" id="pane-layers" hidden>
-      <div class="form" id="layers"></div>
     </section>
     <section class="pane" id="pane-role" hidden>
       <div class="rp" id="rolepane"></div>
@@ -442,14 +563,15 @@ button.rowi:hover{background:var(--soft)}
     <div id="hud"></div>
     <div id="marks"></div>
 
-    <div class="ctrl tl" id="tools">
-      <div class="cgroup">
-        <button class="cbtn" data-tool="polygon" title="Dessiner un polygone" aria-label="Dessiner un polygone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7l7-4 7 5-2 10H7z"/><circle cx="5" cy="7" r="1.6" fill="currentColor"/><circle cx="19" cy="8" r="1.6" fill="currentColor"/><circle cx="17" cy="18" r="1.6" fill="currentColor"/></svg></button>
-        <button class="cbtn" data-tool="rect" title="Dessiner un rectangle" aria-label="Dessiner un rectangle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="1"/></svg></button>
-        <button class="cbtn" data-tool="circle" title="Dessiner un cercle" aria-label="Dessiner un cercle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 12h8"/></svg></button>
-        <button class="cbtn" id="clearZone" title="Effacer la zone" aria-label="Effacer la zone"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13"/></svg></button>
+    <div class="mtools" id="tools">
+      <div class="tgroup" role="group" aria-label="Dessiner une zone de recherche">
+        <span class="tlabel">Zone</span>
+        <button class="tbtn" data-tool="polygon" title="Dessiner un polygone"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7l7-4 7 5-2 10H7z"/></svg><span>Polygone</span></button>
+        <button class="tbtn" data-tool="rect" title="Dessiner un rectangle"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="1"/></svg><span>Rectangle</span></button>
+        <button class="tbtn" data-tool="circle" title="Dessiner un cercle"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/></svg><span>Cercle</span></button>
+        <button class="tbtn icon" id="clearZone" title="Effacer la zone et l'isochrone" aria-label="Effacer la zone"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13"/></svg></button>
       </div>
-      <button class="cbtn" data-tool="iso" title="Isochrone depuis un point de la carte" aria-label="Isochrone depuis un point"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="2.2" fill="currentColor"/><path d="M12 4c4 0 8 3 8 8s-4 8-8 8-8-3-8-8" stroke-dasharray="2.5 2.5"/><path d="M12 7.5a4.5 4.5 0 1 1-4.5 4.5"/></svg></button>
+      <button class="tbtn solo" data-tool="iso" title="Cliquez un point de la carte : tout ce qui est accessible en 5 à 30 min"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="2.2" fill="currentColor"/><path d="M12 4c4 0 8 3 8 8s-4 8-8 8-8-3-8-8" stroke-dasharray="2.5 2.5"/><path d="M12 7.5a4.5 4.5 0 1 1-4.5 4.5"/></svg><span>Isochrone</span></button>
     </div>
     <div class="ctrl tr">
       <div class="cgroup">
@@ -457,14 +579,18 @@ button.rowi:hover{background:var(--soft)}
         <button class="cbtn" id="zout" aria-label="Zoom arrière"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg></button>
       </div>
       <button class="cbtn" id="locate" title="Me localiser" aria-label="Me localiser"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button>
+      <button class="cbtn" id="layersBtn" title="Fond de carte et couches" aria-label="Fond de carte et couches" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></button>
       <button class="cbtn" id="home" title="Vue Sénégal" aria-label="Vue d'ensemble du Sénégal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg></button>
     </div>
-    <div class="basemaps" id="basemaps">
-      <button class="bm on" data-bm="plan">Plan</button>
-      <button class="bm" data-bm="osm">OSM</button>
-      <button class="bm" data-bm="sat">Satellite</button>
-      <button class="bm" data-bm="schema" title="Fond schématique, fonctionne hors ligne">Schéma</button>
-      <button class="bm" disabled title="Plan cadastral : convention DGID / PROCASEF (V2)">Cadastre</button>
+    <div class="lpanel" id="lpanel" hidden role="dialog" aria-label="Fond de carte et couches">
+      <div class="lphead"><b>Fond de carte</b><button class="x" id="lpClose" aria-label="Fermer">✕</button></div>
+      <div class="bmgrid" id="basemaps">
+        <button class="bm on" data-bm="osm"><i class="bmp osm"></i><span>OSM</span></button>
+        <button class="bm" data-bm="sat"><i class="bmp sat"></i><span>Satellite</span></button>
+        <button class="bm" data-bm="schema" title="Fond schématique, fonctionne hors ligne"><i class="bmp sch"></i><span>Schéma</span></button>
+        <button class="bm" disabled title="Plan cadastral : convention DGID / PROCASEF (V2)"><i class="bmp cad"></i><span>Cadastre <small>V2</small></span></button>
+      </div>
+      <div class="form" id="layers"></div>
     </div>
     <div class="legend" id="legend" hidden></div>
     <div class="foot"><div class="scale" id="scale"><i></i><span class="num"></span></div><span><span id="attrib"></span> · annonces et agences fictives</span></div>
@@ -705,7 +831,7 @@ computeNear();
 // ---------- État ----------
 let T=d3.zoomIdentity,W=0,H=0;
 const S={sel:null,tool:null,zone:null,draft:null,iso:null,isoMode:'walk',isoT:15,peak:false,isoOrigin:null,
-  layers:{listings:1,hex:0,regions:1,deps:1,arrs:0,roads:1,ter:1,brt:1},poicats:new Set(Object.keys(CATS)),bm:'schema',
+  layers:{listings:1,hex:0,regions:1,deps:1,arrs:0,roads:1,ter:1,brt:1},poicats:new Set(Object.keys(CATS)),bm:'osm',
   f:{tx:'all',types:new Set(),pmin:0,pmax:0,smin:0,rooms:0,fon:new Set(),exact:false,ag:''},adv:null,adm:{1:-1,2:-1,3:-1,c:-1},sort:'recent',tab:'list',filtered:LIST.slice(),pinned:null};
 
 // ---------- Fond de carte ----------
@@ -837,7 +963,7 @@ function passBase(l,ignoreZone){const f=S.f;
   if(!ignoreZone&&S.zone&&!inZone(l.lon,l.lat))return false;
   return true}
 function inZone(lon,lat){const z=S.zone;if(!z)return true;if(z.type==='circle')return hav(lon,lat,z.c[0],z.c[1])<=z.r;return pip(lon,lat,z.ring)}
-function applyFilters(){S.filtered=LIST.filter(l=>passBase(l));const n=activeCount();const fc=$('#fcnt');fc.hidden=!n;fc.textContent=n;renderList();schedule();if(S.iso)renderSheet()}
+function applyFilters(){S.filtered=LIST.filter(l=>passBase(l));const n=activeCount();const fc=$('#fcnt');fc.hidden=!n;fc.textContent=n;renderQbar();renderList();schedule();if(S.iso)renderSheet()}
 function activeCount(){const f=S.f;return(f.tx!=='all')+(f.types.size>0)+(!!f.pmin||!!f.pmax)+(!!f.smin)+(!!f.rooms)+(f.fon.size>0)+f.exact+(!!f.ag)+(!!S.adv)+(!!S.zone)+(admUnit()?1:0)+(!!S.terr&&S.terr.lvl!=='pays')}
 
 const PRICES={vente:[5e6,1e7,2.5e7,5e7,7.5e7,1e8,1.5e8,2.5e8,5e8,1e9],location:[5e4,1e5,1.5e5,2.5e5,4e5,6e5,1e6,2e6,4e6]};
@@ -903,20 +1029,24 @@ function renderList(){
   const [lo0,la1]=unscr(0,0),[lo1,la0]=unscr(W,H);
   let vis=S.filtered.filter(l=>l.lon>=lo0&&l.lon<=lo1&&l.lat>=la0&&l.lat<=la1);
   const s=S.sort;vis.sort(s==='pasc'?(a,b)=>a.price-b.price:s==='pdesc'?(a,b)=>b.price-a.price:s==='ppm'?(a,b)=>a.ppm-b.ppm:(a,b)=>a.days-b.days);
-  $('#cnt').textContent=vis.length;$('#scope').textContent=`${vis.length} sur ${S.filtered.length} dans la zone affichée`;
+  $('#cnt').textContent=vis.length;$('#scope').textContent=vis.length===S.filtered.length?`${vis.length} annonce${vis.length>1?'s':''} dans la vue`:`${vis.length} sur ${S.filtered.length} dans la vue`;
   const max=80;$('#list').innerHTML=vis.slice(0,max).map(l=>`<button class="card ${S.sel&&S.sel.id===l.id?'on':''}" data-id="${l.id}">
-    <span class="thumb" style="background:${TYPECOL[l.type]}">${l.type==='Local commercial'?'Local':l.type}</span>
-    <span style="min-width:0"><h4>${title(l)}</h4><div class="price">${full(l.price)}${l.tx==='location'?'<small style="color:var(--muted)"> /mois</small>':''}</div>
-    <div class="meta">${esc(l.zone)} · ${esc(l.region)}</div>
-    <div style="margin-top:4px">${fonTag(l)}${l.approx?'<span class="tag">Position approx.</span>':''}${l.meuble?'<span class="tag">Meublé</span>':''}</div></span></button>`).join('')+
+    <span class="ticon" style="--c:${TYPECOL[l.type]}">${TYPEICON[l.type]||''}<em>${({Appartement:'Appart.','Local commercial':'Local'})[l.type]||l.type}</em></span>
+    <span class="cbody"><span class="crow"><b class="cprice">${short(l.price)} <small>FCFA${l.tx==='location'?' /mois':''}</small></b><span class="cppm num">${short(l.ppm)}/m²${l.tx==='location'?'·mois':''}</span></span>
+    <span class="ctitle">${ctitle(l)}</span>
+    <span class="cloc">${esc(l.zone)}, ${esc(l.region)}</span>
+    <span class="ctags">${fonTag(l)}${l.tx==='location'?'<span class="tag">Location</span>':''}${l.meuble?'<span class="tag">Meublé</span>':''}${l.approx?'<span class="tag">Position approx.</span>':''}</span></span></button>`).join('')+
     (vis.length>max?`<div class="more">${vis.length-max} autres annonces dans cette vue : zoomez ou affinez les filtres.</div>`:'')+
     (!vis.length?`<div class="more">Aucune annonce dans la zone affichée. ${S.filtered.length?'Dézoomez ou déplacez la carte.':'Assouplissez les filtres.'}</div>`:'');
 }
 const fonTag=l=>`<span class="tag ${l.fon==='TF'?'tf':l.fon==='Délibération'?'del':''}">${l.fon==='TF'?'Titre foncier':l.fon}</span>`;
 const title=l=>l.type==='Terrain'?`Terrain ${nf.format(l.surf)} m²`:l.type==='Studio'?`Studio ${l.surf} m²`:(l.rooms?`${l.type} ${l.rooms} pièces, ${nf.format(l.surf)} m²`:`${l.type} ${nf.format(l.surf)} m²`);
 $('#list').addEventListener('click',e=>{const c=e.target.closest('.card');if(c)select(+c.dataset.id)});
+// Survol d'une annonce dans la liste : la pastille correspondante ressort sur la carte
+$('#list').addEventListener('mouseover',e=>{const c=e.target.closest('.card');document.querySelectorAll('.pill.hl').forEach(p=>p.classList.remove('hl'));if(!c)return;const p=pool.get('l'+c.dataset.id);if(p)p.classList.add('hl')});
+$('#list').addEventListener('mouseleave',()=>document.querySelectorAll('.pill.hl').forEach(p=>p.classList.remove('hl')));
 $('#sort').addEventListener('change',e=>{S.sort=e.target.value;renderList()});
-document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-tab]');if(!b)return;S.tab=b.dataset.tab;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));['list','filters','layers','role'].forEach(t=>$('#pane-'+t).hidden=t!==S.tab);$('#side').classList.remove('min')});
+document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-tab]');if(!b)return;S.tab=b.dataset.tab;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));['list','filters','role'].forEach(t=>$('#pane-'+t).hidden=t!==S.tab);$('#side').classList.remove('min')});
 $('#handle').addEventListener('click',()=>$('#side').classList.toggle('min'));
 
 // ---------- Recherche ----------
@@ -1325,7 +1455,6 @@ rp.addEventListener('change',e=>{const t=e.target;
 const isDark=()=>{const t=document.documentElement.dataset.theme;return t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)};
 const RET=(window.devicePixelRatio||1)>1.4?'@2x':'';
 const BASEMAPS={
-  plan:{layers:()=>[{url:`https://{s}.basemaps.cartocdn.com/rastertiles/${isDark()?'dark_all':'voyager'}/{z}/{x}/{y}${RET}.png`,sub:'abcd',max:20}],attr:'© contributeurs OpenStreetMap · © CARTO'},
   osm:{layers:()=>[{url:'https://tile.openstreetmap.org/{z}/{x}/{y}.png',max:19}],attr:'© contributeurs OpenStreetMap'},
   sat:{layers:()=>[{url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',max:19},{url:'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',max:19}],attr:'Imagerie © Esri, Maxar, Earthstar Geographics · libellés © Esri'},
   schema:{layers:()=>[],attr:'Fond schématique hors ligne (tracé approximatif)'}
@@ -1355,8 +1484,7 @@ function renderTiles(){
 }
 function initTiles(){
   $('#basemaps').addEventListener('click',e=>{const b=e.target.closest('button[data-bm]');if(b&&!b.disabled)setBasemap(b.dataset.bm)});
-  try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if(S.bm==='plan')setBasemap('plan')})}catch(e){}
-  setBasemap('plan');
+    setBasemap('osm');
 }
 
 // ---------- Limites administratives (geoBoundaries) et filtre Région / Département / Arrondissement / Commune ----------
@@ -1432,6 +1560,52 @@ async function geocode(text){sugg.innerHTML='<button disabled><span>Recherche da
     sres=j.map(r=>{const b=r.boundingbox.map(Number);return{t:r.display_name.split(',').slice(0,3).join(','),k:'OpenStreetMap · '+(r.type||r.category),lon:+r.lon,lat:+r.lat,bb:[b[2],b[0],b[3],b[1]],mark:1}});sidx=0;
     sugg.innerHTML=sres.length?sres.map((r,i)=>`<button data-i="${i}" class="${i===0?'on':''}"><span>${esc(r.t)}</span><small>${esc(r.k)}</small></button>`).join(''):'<button disabled><span>Aucun résultat OpenStreetMap</span></button>'}
   catch(e){sugg.innerHTML='<button disabled><span>OpenStreetMap injoignable depuis cet aperçu</span><small>Fonctionne sur la version publiée</small></button>'}}
+
+
+// ---------- Refonte UX : filtres rapides, puces actives, panneau Couches ----------
+const TYPEICON={
+  Appartement:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 21V4h10v17M15 9h4v12M3 21h18M8 7h1M11 7h1M8 10h1M11 10h1M8 13h1M11 13h1M8 16h1M11 16h1"/></svg>',
+  Villa:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3 11l9-7 9 7M5 9.5V20h14V9.5M10 20v-5h4v5"/></svg>',
+  Studio:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3 18v-6h18v6M3 15h18M6 12V8h5v4M3 18v2M21 18v2"/></svg>',
+  Terrain:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 7l8-3 8 3v10l-8 3-8-3z" stroke-dasharray="3 2"/><path d="M12 4v16"/></svg>',
+  Bureau:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M3 13h18"/></svg>',
+  'Local commercial':'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 10v10h16V10M3 10l2-6h14l2 6zM9 20v-5h6v5"/></svg>',
+  Immeuble:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 21V3h16v18M2 21h20M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2"/></svg>'};
+const ctitle=l=>l.type==='Terrain'?`Terrain · ${nf.format(l.surf)} m²`:[l.type==='Local commercial'?'Local commercial':l.type,l.rooms&&l.type!=='Studio'?l.rooms+' pièces':null,nf.format(l.surf)+' m²'].filter(Boolean).join(' · ');
+const QTYPES=['Appartement','Villa','Studio','Terrain','Bureau','Local commercial','Immeuble'];
+function renderQbar(){const f=S.f;const pl=PRICES[f.tx==='location'?'location':'vente'];const t=f.types.size===1?[...f.types][0]:(f.types.size?'multi':'');
+  $('#qbar').innerHTML=`<div class="qseg" role="group" aria-label="Transaction">${[['all','Tout'],['vente','Acheter'],['location','Louer']].map(([v,l])=>`<button data-qtx="${v}" class="${f.tx===v?'on':''}" aria-pressed="${f.tx===v}">${l}</button>`).join('')}</div>
+  <div class="qrow"><select id="q-type" aria-label="Type de bien"><option value="">Tous les biens</option>${t==='multi'?'<option value="multi" selected>Plusieurs types</option>':''}${QTYPES.map(x=>`<option ${t===x?'selected':''}>${x}</option>`).join('')}</select>
+  <select id="q-max" aria-label="Budget maximum"><option value="0">${f.tx==='location'?'Loyer max':'Budget max'}</option>${pl.map(v=>`<option value="${v}" ${f.pmax===v?'selected':''}>≤ ${short(v)}${f.tx==='location'?'/mois':''}</option>`).join('')}</select>
+  <button class="qmore" id="q-more"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg>Filtres${activeCount()?`<span>${activeCount()}</span>`:''}</button></div>`;
+  // puces des filtres actifs, retirables une à une
+  const c=[];const ch=(k,txt)=>c.push(`<button class="fchip" data-k="${esc(k)}" title="Retirer ce filtre">${esc(txt)}<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></button>`);
+  if(f.tx!=='all')ch('tx',f.tx==='vente'?'À vendre':'À louer');
+  f.types.forEach(x=>ch('type:'+x,x));
+  if(f.pmin||f.pmax)ch('price',f.pmin&&f.pmax?`${short(f.pmin)} – ${short(f.pmax)}`:f.pmax?`≤ ${short(f.pmax)}`:`≥ ${short(f.pmin)}`);
+  if(f.smin)ch('smin',`≥ ${f.smin} m²`);if(f.rooms)ch('rooms',`${f.rooms}+ pièces`);
+  f.fon.forEach(x=>ch('fon:'+x,x==='TF'?'Titre foncier':x));if(f.exact)ch('exact','Position exacte');if(f.ag)ch('ag',f.ag);
+  if(S.adv)ch('adv',`≤ ${S.adv.min} min ${S.adv.mode==='walk'?'à pied':'à vélo'} · ${CATONE[S.adv.cat].toLowerCase()}`);
+  if(S.zone)ch('zone','Zone dessinée');const u=admUnit();if(u)ch('adm',u.name);
+  const el=$('#chips');el.hidden=!c.length;el.innerHTML=c.join('')+(c.length>1?'<button class="fclear" data-k="all">Tout effacer</button>':'')}
+$('#qbar').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.qtx){S.f.tx=b.dataset.qtx;S.f.pmin=0;S.f.pmax=0;buildFilters();applyFilters();return}
+  if(b.id==='q-more')document.querySelector('.tabs [data-tab="filters"]').click()});
+$('#qbar').addEventListener('change',e=>{const t=e.target;
+  if(t.id==='q-type'){if(t.value==='multi')return;S.f.types=new Set(t.value?[t.value]:[])}
+  if(t.id==='q-max')S.f.pmax=+t.value;buildFilters();applyFilters()});
+$('#chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const k=b.dataset.k,f=S.f;
+  if(k==='all'){S.f={tx:'all',types:new Set(),pmin:0,pmax:0,smin:0,rooms:0,fon:new Set(),exact:false,ag:''};S.adv=null;S.adm={1:-1,2:-1,3:-1,c:-1};drawAdmSel();clearZone(true)}
+  else if(k==='tx'){f.tx='all';f.pmin=0;f.pmax=0}else if(k.startsWith('type:'))f.types.delete(k.slice(5));else if(k==='price'){f.pmin=0;f.pmax=0}
+  else if(k==='smin')f.smin=0;else if(k==='rooms')f.rooms=0;else if(k.startsWith('fon:'))f.fon.delete(k.slice(4));else if(k==='exact')f.exact=false;else if(k==='ag')f.ag='';
+  else if(k==='adv')S.adv=null;else if(k==='zone')clearZone(true);else if(k==='adm'){S.adm={1:-1,2:-1,3:-1,c:-1};drawAdmSel()}
+  buildFilters();applyFilters()});
+// Panneau « Fond de carte et couches »
+const lp=$('#lpanel'),lb=$('#layersBtn');
+function toggleLP(open){lp.hidden=!open;lb.classList.toggle('on',open);lb.setAttribute('aria-expanded',open)}
+lb.addEventListener('click',()=>toggleLP(lp.hidden));$('#lpClose').addEventListener('click',()=>toggleLP(false));
+document.addEventListener('pointerdown',e=>{if(!lp.hidden&&!e.composedPath().some(n=>n===lp||n===lb))toggleLP(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lp.hidden)toggleLP(false)});
 
 // ---------- Démarrage ----------
 initTiles();buildFilters();buildLayers();applyLayerVis();loadAdm();
